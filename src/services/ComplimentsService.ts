@@ -32,11 +32,12 @@ class ComplimentsService {
         }
 
         const compliment = this.complimentsRepository.create({
-            tag_id,
-            user_receiver,
-            user_sender,
-            message
+            tag_id, user_sender, user_receiver, message
         })
+
+        await this.complimentsRepository.save(compliment)
+
+        return compliment;
 
     }
 }

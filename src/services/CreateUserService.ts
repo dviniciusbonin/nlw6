@@ -17,7 +17,7 @@ class CreateUserService {
         this.usersRepository = getCustomRepository(UserRepositories);
     }
 
-    async execute({ name, email, admin, password }: IUserRequest) {
+    async execute({ name, email, admin = false, password }: IUserRequest) {
 
         if (!email) {
             throw new Error("email incorrect")
