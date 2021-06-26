@@ -2,6 +2,9 @@ import { getCustomRepository } from 'typeorm';
 import { UserRepositories } from '../repositories/UserRespositories'
 import { compare } from 'bcryptjs'
 import { sign } from 'jsonwebtoken'
+import { config } from 'dotenv'
+
+config()
 
 interface IAuthenticateRequest {
     email: string;
@@ -36,7 +39,7 @@ class AuthenticateUserService {
             email: user.email,
 
         },
-            "nodejsmelhorquephp",
+            process.env.AUTH_SECRET,
             {
                 subject: user.id,
                 expiresIn: "1d"

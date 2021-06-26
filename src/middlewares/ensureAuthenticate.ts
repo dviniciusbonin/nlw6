@@ -1,5 +1,7 @@
 import { Request, Response, NextFunction } from 'express'
 import { verify } from 'jsonwebtoken'
+import { config } from 'dotenv'
+config()
 
 interface IPayload {
     sub: string;
@@ -15,7 +17,7 @@ export function ensureAuthenticate(request: Request, response: Response, next: N
     const [, token] = authToken.split(" ")
 
     try {
-        const { sub } = verify(token, "nodejsmelhorquephp") as IPayload;
+        const { sub } = verify(token, process.env.AUTH_SECRET) as IPayload;
 
         request.user_id = sub;
 

@@ -24,7 +24,7 @@ const listUserController = new ListUserController()
 
 router.post('/auth', authenticateUserController.handle);
 
-router.post('/users', ensureAuthenticate, createUserController.handle);
+router.post('/users', createUserController.handle);
 
 router.get('/users', ensureAuthenticate, ensureAdmin, listUserController.handle)
 
