@@ -35,10 +35,12 @@ class AuthenticateUserService {
         const token = sign({
             email: user.email,
 
-        }, "nodejsmelhorquephp", {
-            subject: user.id,
-            expiresIn: "1d"
-        })
+        },
+            "nodejsmelhorquephp",
+            {
+                subject: user.id,
+                expiresIn: "1d"
+            })
 
         return token
     }
