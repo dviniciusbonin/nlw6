@@ -26,6 +26,8 @@ router.post('/auth', authenticateUserController.handle);
 
 router.post('/users', createUserController.handle);
 
+router.get('/user', ensureAuthenticate, listUserController.getUser);
+
 router.get('/users', ensureAuthenticate, ensureAdmin, listUserController.handle)
 
 router.post('/tags', ensureAuthenticate, ensureAdmin, createTagController.handle);

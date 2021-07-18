@@ -10,6 +10,16 @@ class ListUserController {
 
         return response.json(users);
     }
+
+    async getUser(request: Request, response: Response) {
+        const { user_id } = request
+
+        const listUserService = new ListUserService();
+
+        const user = await listUserService.getById(user_id);
+
+        return response.json(user);
+    }
 }
 
 export { ListUserController }

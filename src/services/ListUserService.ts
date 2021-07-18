@@ -16,6 +16,12 @@ class ListUserService {
         return classToPlain(users);
     }
 
+    async getById(id: string) {
+        const user = await this.userRepsitory.findOne(id);
+
+        return classToPlain(user);
+    }
+
 }
 
 export { ListUserService }
