@@ -12,7 +12,7 @@ class AuthenticateUserController {
             password
         })
 
-        return response.json({ access_token: auth })
+        return response.json({ accessToken: auth })
     }
 }
 
