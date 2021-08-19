@@ -7,6 +7,7 @@ class CreateUserController {
     private usersRepository: UserRepositories
 
     async handle(request: Request, response: Response) {
+        console.log(request.body);
 
         const { name, email, admin, password } = request.body
 
